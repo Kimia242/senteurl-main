@@ -1,0 +1,222 @@
+/* App-specific styles */
+
+/* Hero section background gradient */
+.hero-gradient {
+    background: linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(220 20% 4%) 50%, hsl(343 30% 8%) 100%);
+}
+
+/* Card gradient overlay */
+.card-gradient {
+    background: linear-gradient(to top, hsl(220 20% 4% / 0.9), transparent);
+}
+
+/* Navigation glass effect */
+.nav-glass {
+    background: hsl(222 47% 11% / 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Promotion badge pulse */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 hsl(343 81% 55% / 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px hsl(343 81% 55% / 0.2);
+    }
+}
+
+.promo-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        hsl(var(--muted)) 25%,
+        hsl(var(--muted-foreground) / 0.1) 50%,
+        hsl(var(--muted)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Price strike-through */
+.price-strike {
+    position: relative;
+}
+
+.price-strike::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: hsl(var(--muted-foreground));
+    transform: rotate(-5deg);
+}
+
+/* Quantity selector */
+.qty-btn {
+    @apply w-10 h-10 flex items-center justify-center border border-border bg-card hover:bg-accent transition-colors duration-200;
+}
+
+/* Grid patterns */
+.grid-pattern {
+    background-image: 
+        linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+    position: relative;
+}
+
+.noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Parallax container */
+.parallax-container {
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+/* Image zoom on hover */
+.zoom-container {
+    overflow: hidden;
+}
+
+.zoom-container img {
+    transition: transform 0.7s ease-out;
+}
+
+.zoom-container:hover img {
+    transform: scale(1.08);
+}
+
+/* Footer gradient */
+.footer-gradient {
+    background: linear-gradient(to top, hsl(220 20% 4%), hsl(222 47% 8%));
+}
+
+/* Admin sidebar */
+.admin-sidebar {
+    background: linear-gradient(180deg, hsl(222 47% 11%), hsl(220 20% 6%));
+}
+
+/* Table styles */
+.admin-table {
+    @apply w-full border-collapse;
+}
+
+.admin-table th {
+    @apply text-left p-4 bg-muted/30 text-muted-foreground font-medium uppercase text-xs tracking-wider;
+}
+
+.admin-table td {
+    @apply p-4 border-t border-border;
+}
+
+.admin-table tr:hover td {
+    @apply bg-muted/20;
+}
+
+/* Form input focus glow */
+.input-glow:focus {
+    box-shadow: 0 0 0 3px hsl(343 81% 55% / 0.2);
+}
+
+/* Badge variants */
+.badge-new {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+}
+
+.badge-promo {
+    @apply bg-primary/20 text-primary border border-primary/30;
+}
+
+.badge-stock-low {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+}
+
+.badge-out-of-stock {
+    @apply bg-destructive/20 text-red-400 border border-destructive/30;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    background: hsl(220 20% 4% / 0.95);
+    backdrop-filter: blur(8px);
+}
+
+/* Search results dropdown */
+.search-dropdown {
+    @apply absolute top-full left-0 right-0 mt-2 bg-card border border-border shadow-2xl max-h-96 overflow-y-auto z-50;
+}
+
+/* Cart drawer */
+.cart-drawer {
+    @apply fixed top-0 right-0 h-full w-full max-w-md bg-card border-l border-border shadow-2xl z-50;
+}
+
+/* Checkout steps */
+.checkout-step {
+    @apply flex items-center gap-3;
+}
+
+.checkout-step-number {
+    @apply w-8 h-8 flex items-center justify-center text-sm font-bold;
+}
+
+.checkout-step-number.active {
+    @apply bg-primary text-primary-foreground;
+}
+
+.checkout-step-number.completed {
+    @apply bg-emerald-500 text-white;
+}
+
+.checkout-step-number.pending {
+    @apply bg-muted text-muted-foreground;
+}
+
+/* Responsive container */
+.container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Section spacing */
+.section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+}
+
+/* Hide scrollbar for carousel */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
