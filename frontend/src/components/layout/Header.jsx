@@ -98,7 +98,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500',
         isScrolled ? 'nav-glass border-b border-border/50' : 'bg-transparent'
       )}
     >
